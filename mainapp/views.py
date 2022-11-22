@@ -6,6 +6,11 @@ from django.views.generic import TemplateView
 class MainPageView(TemplateView):
     template_name = "mainapp/index.html"
 
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['title'] = 'Приветствую, путник!'
+        return context_data
+
 class NewsPageView(TemplateView):
     template_name = "mainapp/news.html"
 
